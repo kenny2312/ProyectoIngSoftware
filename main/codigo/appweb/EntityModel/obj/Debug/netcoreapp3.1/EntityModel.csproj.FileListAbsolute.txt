@@ -1,0 +1,8 @@
+C:\Users\User\source\repos\ProyectoRankingEmpresas\EntityModel\bin\Debug\netcoreapp3.1\EntityModel.deps.json
+C:\Users\User\source\repos\ProyectoRankingEmpresas\EntityModel\bin\Debug\netcoreapp3.1\EntityModel.dll
+C:\Users\User\source\repos\ProyectoRankingEmpresas\EntityModel\bin\Debug\netcoreapp3.1\EntityModel.pdb
+C:\Users\User\source\repos\ProyectoRankingEmpresas\EntityModel\obj\Debug\netcoreapp3.1\EntityModel.AssemblyInfoInputs.cache
+C:\Users\User\source\repos\ProyectoRankingEmpresas\EntityModel\obj\Debug\netcoreapp3.1\EntityModel.AssemblyInfo.cs
+C:\Users\User\source\repos\ProyectoRankingEmpresas\EntityModel\obj\Debug\netcoreapp3.1\EntityModel.csproj.CoreCompileInputs.cache
+C:\Users\User\source\repos\ProyectoRankingEmpresas\EntityModel\obj\Debug\netcoreapp3.1\EntityModel.dll
+C:\Users\User\source\repos\ProyectoRankingEmpresas\EntityModel\obj\Debug\netcoreapp3.1\EntityModel.pdb
