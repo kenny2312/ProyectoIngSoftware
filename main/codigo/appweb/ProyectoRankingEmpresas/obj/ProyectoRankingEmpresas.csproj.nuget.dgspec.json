@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\User\\source\\repos\\ProyectoRankingEmpresas\\ProyectoRankingEmpresas\\ProyectoRankingEmpresas.csproj": {}
+    "C:\\Users\\User\\Desktop\\ProyectoING\\ProyectoIngSoftware\\main\\codigo\\appweb\\ProyectoRankingEmpresas\\ProyectoRankingEmpresas.csproj": {}
   },
   "projects": {
-    "C:\\Users\\User\\source\\repos\\ProyectoRankingEmpresas\\EntityModel\\EntityModel.csproj": {
+    "C:\\Users\\User\\Desktop\\ProyectoING\\ProyectoIngSoftware\\main\\codigo\\appweb\\EntityModel\\EntityModel.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\User\\source\\repos\\ProyectoRankingEmpresas\\EntityModel\\EntityModel.csproj",
+        "projectUniqueName": "C:\\Users\\User\\Desktop\\ProyectoING\\ProyectoIngSoftware\\main\\codigo\\appweb\\EntityModel\\EntityModel.csproj",
         "projectName": "EntityModel",
-        "projectPath": "C:\\Users\\User\\source\\repos\\ProyectoRankingEmpresas\\EntityModel\\EntityModel.csproj",
+        "projectPath": "C:\\Users\\User\\Desktop\\ProyectoING\\ProyectoIngSoftware\\main\\codigo\\appweb\\EntityModel\\EntityModel.csproj",
         "packagesPath": "C:\\Users\\User\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\User\\source\\repos\\ProyectoRankingEmpresas\\EntityModel\\obj\\",
+        "outputPath": "C:\\Users\\User\\Desktop\\ProyectoING\\ProyectoIngSoftware\\main\\codigo\\appweb\\EntityModel\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\User\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -52,18 +52,18 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.405\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.406\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\User\\source\\repos\\ProyectoRankingEmpresas\\ProyectoRankingEmpresas\\ProyectoRankingEmpresas.csproj": {
+    "C:\\Users\\User\\Desktop\\ProyectoING\\ProyectoIngSoftware\\main\\codigo\\appweb\\ProyectoRankingEmpresas\\ProyectoRankingEmpresas.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\User\\source\\repos\\ProyectoRankingEmpresas\\ProyectoRankingEmpresas\\ProyectoRankingEmpresas.csproj",
+        "projectUniqueName": "C:\\Users\\User\\Desktop\\ProyectoING\\ProyectoIngSoftware\\main\\codigo\\appweb\\ProyectoRankingEmpresas\\ProyectoRankingEmpresas.csproj",
         "projectName": "ProyectoRankingEmpresas",
-        "projectPath": "C:\\Users\\User\\source\\repos\\ProyectoRankingEmpresas\\ProyectoRankingEmpresas\\ProyectoRankingEmpresas.csproj",
+        "projectPath": "C:\\Users\\User\\Desktop\\ProyectoING\\ProyectoIngSoftware\\main\\codigo\\appweb\\ProyectoRankingEmpresas\\ProyectoRankingEmpresas.csproj",
         "packagesPath": "C:\\Users\\User\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\User\\source\\repos\\ProyectoRankingEmpresas\\ProyectoRankingEmpresas\\obj\\",
+        "outputPath": "C:\\Users\\User\\Desktop\\ProyectoING\\ProyectoIngSoftware\\main\\codigo\\appweb\\ProyectoRankingEmpresas\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\User\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -79,8 +79,8 @@
         "frameworks": {
           "netcoreapp3.1": {
             "projectReferences": {
-              "C:\\Users\\User\\source\\repos\\ProyectoRankingEmpresas\\EntityModel\\EntityModel.csproj": {
-                "projectPath": "C:\\Users\\User\\source\\repos\\ProyectoRankingEmpresas\\EntityModel\\EntityModel.csproj"
+              "C:\\Users\\User\\Desktop\\ProyectoING\\ProyectoIngSoftware\\main\\codigo\\appweb\\EntityModel\\EntityModel.csproj": {
+                "projectPath": "C:\\Users\\User\\Desktop\\ProyectoING\\ProyectoIngSoftware\\main\\codigo\\appweb\\EntityModel\\EntityModel.csproj"
               }
             }
           }
@@ -98,6 +98,10 @@
               "target": "Package",
               "version": "[8.1.0, )"
             },
+            "EntityFrameworkCore.PostgreSQL.Conventions": {
+              "target": "Package",
+              "version": "[1.0.2, )"
+            },
             "Microsoft.AspNetCore.Authentication.JwtBearer": {
               "target": "Package",
               "version": "[3.1.6, )"
@@ -107,6 +111,10 @@
               "version": "[3.1.1, )"
             },
             "Microsoft.EntityFrameworkCore.Relational": {
+              "target": "Package",
+              "version": "[3.1.1, )"
+            },
+            "Microsoft.EntityFrameworkCore.SqlServer": {
               "target": "Package",
               "version": "[3.1.1, )"
             },
@@ -155,7 +163,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.405\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.406\\RuntimeIdentifierGraph.json"
         }
       }
     }

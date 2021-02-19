@@ -42,6 +42,7 @@ const {user, setUser}=useContext(UserContext);
     const ListUser = async () => {
       setSelected([]);
         var list = await UserService.getListUser()
+        console.log(list)
         setListU(list)
 
     }  
@@ -123,7 +124,7 @@ const {user, setUser}=useContext(UserContext);
             <TableCell>LastName</TableCell>
             <TableCell>Usuario</TableCell>
             <TableCell>Fecha</TableCell>
-            <TableCell align="right">Sale Amount</TableCell>
+            <TableCell >Grupo</TableCell>
           </TableRow>
         </TableHead>
 
@@ -153,10 +154,10 @@ const {user, setUser}=useContext(UserContext);
                       </TableCell>
                      
                       <TableCell>{listU.name}</TableCell>
-                              <TableCell>{listU.lastName}</TableCell>
+                       <TableCell>{listU.lastName}</TableCell>
                       <TableCell>{listU.user}</TableCell>
                       <TableCell>{listU.creationDate}</TableCell>
-                     <TableCell align="right">0000</TableCell>
+                      <TableCell>{listU.grupouser.name}</TableCell>
             </TableRow>
           )})}
           {emptyRows > 0 && (

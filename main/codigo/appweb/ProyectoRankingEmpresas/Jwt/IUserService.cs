@@ -1,4 +1,5 @@
-﻿using EntityModel.MClass;
+﻿using EntityModel.Dto.UserDto;
+using EntityModel.MClass;
 using Microsoft.Extensions.Options;
 using Microsoft.IdentityModel.Tokens;
 using ProyectoRankingEmpresas.Model;
@@ -40,7 +41,9 @@ namespace ProyectoRankingEmpresas
         public  AuthenticateResponse Authenticate(AuthenticateRequest model, string ipAddress)
         {
             var user =  _context.User.SingleOrDefault(x => x.user == model.Username && x.Password == model.Password);
-
+          //  var user =  _context.User.Join(_context.GrupoUser,x=>x.GrupuserId,y=>y.Id,(x,y)=>x)
+            //    .Select(p => p).Where(x => x.user == model.Username && x.Password == model.Password).
+              //  SingleOrDefault();
             // return null if user not found
             if (user == null) return null;
 
@@ -126,6 +129,7 @@ namespace ProyectoRankingEmpresas
                 {
                     new Claim(ClaimTypes.Name, user.Guid.ToString()),
                     new Claim("Gactions", user.GrupuserId.ToString())
+                    
                 }),
                 Expires = DateTime.UtcNow.AddMinutes(50),
                 SigningCredentials = new SigningCredentials(new SymmetricSecurityKey(key), SecurityAlgorithms.HmacSha256Signature)

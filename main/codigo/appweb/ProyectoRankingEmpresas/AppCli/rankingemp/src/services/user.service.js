@@ -1,6 +1,6 @@
 import axios from "axios";
 import authHeader from "./auth-Header";
-
+import  User from "../class/user.js"
 const API_URL = "https://localhost:44392/api/User/";
 
 const getListUser = async () => {
@@ -16,7 +16,7 @@ var config = {
  await axios(config).then((response)=>{
 
     list =response.data;
-
+console.log(list)
   }).catch((error)=>console.log(error));
   return list;
 };
@@ -55,18 +55,46 @@ return "mal";
 
 };
 
-const getModeratorBoard = () => {
-  return axios.get(API_URL + "mod", { headers: authHeader() });
+const GetUser = async  (data) => {
+  let obj = {};
+  let config = {
+    method: 'get',
+    url: API_URL + "User?id="+data,
+    
+    headers: authHeader()
+};
+await axios(config).then((response) => {
+
+  obj = response.data;
+ 
+
+}).catch((error) => console.log(error));
+return obj;
+
 };
 
-const getAdminBoard = () => {
-  return axios.get(API_URL + "admin", { headers: authHeader() });
+const UpdateUser = async  (data) => {
+ 
+  let config = {
+    method: 'put',
+    url: API_URL + "update",
+    data: data,
+    headers: authHeader()
+};
+await axios(config).then((response) => {
+
+  console.log(response)
+ 
+
+}).catch((error) => console.log(error));
+return "ok";
+
 };
 
 export default {
   getListUser,
   deleteUser,
-  getModeratorBoard,
-    getAdminBoard,
+  GetUser,
+  UpdateUser,
     postUser,
 };

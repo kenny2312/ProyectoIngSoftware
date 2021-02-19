@@ -1,10 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Claims;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Filters;
 using ProyectoRankingEmpresas.Jwt;
 using AuthorizeAttribute = ProyectoRankingEmpresas.Jwt.AuthorizeAttribute;
 
@@ -27,6 +29,8 @@ namespace ProyectoRankingEmpresas.Controllers
         [HttpPost("authenticate")]
         public  async Task<ActionResult> Authenticate(AuthenticateRequest model)
         {
+
+
             var response =   _userService.Authenticate(model, ipAddress());
 
             if (response == null)
@@ -77,6 +81,27 @@ namespace ProyectoRankingEmpresas.Controllers
             var users = _userService.GetAll();
             return Ok(users);
         }
+
+        [HttpGet]
+        [Route("Listmenu")]
+        public async Task<ActionResult> GetMenu()
+        {
+
+            var identity = HttpContext.User.Identity as ClaimsIdentity;
+            string Guid = "";
+            if (identity != null)
+            {
+                IEnumerable<Claim> claims = identity.Claims;
+
+                Guid = claims.First(x => x.Type == "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name").Value;
+            }
+           
+           
+
+            return Ok();
+        }
+
+
         [HttpGet("{id}")]
         public IActionResult GetById(string id)
         {

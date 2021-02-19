@@ -27,26 +27,71 @@ namespace ProyectoRankingEmpresas.Controllers
         }
         // GET: api/<EmpresaController>
         [HttpGet]
-        [Route("Empresa")]
-        public async Task<ActionResult<DtoCargos>> Get(string id)
+        [Route("List")]
+        public async Task<ActionResult<List<DtoEmpresa>>> Get()
         {
 
-            var company = await _context.Empresa.FindAsync(id);
+            var company = await _context.Empresa.ToListAsync(); 
 
-            var dto = (DtoCargos)_mapper.Map<DtoCargos>(company);
+            var dto = _mapper.Map<List<DtoEmpresa>>(company);
             if (company == null)
+
+            {
+                return NotFound();
+            }
+
+            return Ok(dto);
+        }
+
+       
+        [HttpGet()]
+        [Route("empcli")]
+        public async Task<ActionResult<DtoEmpresa>> empcli(int id)
+        {
+            var empid = _context.User.SingleOrDefault(x => x.Id == id).EmprId;
+
+            var carg = await _context.Empresa.FirstOrDefaultAsync(x => x.Guid == empid);
+
+            var dto = (DtoEmpresa)_mapper.Map<DtoEmpresa>(carg);
+            if (dto == null)
+
+            {
+                return NotFound(id);
+            }
+
+            return  Ok(dto);
+        }
+
+        [HttpGet]
+        [Route("select")]
+        public async Task<ActionResult<List<DtoEmpresaS>>> GetSelect()
+        {
+
+            var company = await _context.Empresa.Select(x=> new { x.Guid,x.Name}).ToListAsync();
+
+           
+            if (company == null)
+
+            {
+                return NotFound();
+            }
+
+            return Ok(company);
+        }
+        // GET api/<EmpresaController>/5
+        [HttpGet("{id}")]
+        public async Task<ActionResult<DtoEmpresa>> Get(string id)
+        {
+            var emp = await _context.Empresa.FindAsync(id);
+
+            var dto = (DtoEmpresa)_mapper.Map<DtoEmpresa>(emp);
+            if (dto == null)
 
             {
                 return NotFound(id);
             }
 
             return Ok(dto);
-        }
-        // GET api/<EmpresaController>/5
-        [HttpGet("{id}")]
-        public string Get(int id)
-        {
-            return "value";
         }
 
         // POST api/<EmpresaController>
@@ -108,7 +153,7 @@ namespace ProyectoRankingEmpresas.Controllers
         // DELETE api/<EmpresaController>/5
         [HttpDelete]
         [Route("delete")]
-        public async Task<ActionResult<DtoCargos>> Delete(string id)
+        public async Task<ActionResult<DtoEmpresa>> Delete(string id)
         {
 
             var empresa  = await _context.Empresa.FindAsync(id);
@@ -125,7 +170,7 @@ namespace ProyectoRankingEmpresas.Controllers
 
 
         }
-
+       
         [NonAction]
         private bool EmpresaExists(string id)
         {

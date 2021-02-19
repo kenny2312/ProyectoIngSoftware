@@ -22,7 +22,7 @@ namespace EntityModel.MClass
 
         public DateTime CreationDate { get; set; }
 
-        public UserSys User { get; set; }
+        //public UserSys User { get; set; }
         public ICollection<ActionU> Acciones { get; set; }
     }
 }

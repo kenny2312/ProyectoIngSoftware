@@ -11,7 +11,7 @@ namespace EntityModel.Dto.EmpresaDto
         public string Name { get; set; }
         public string Address { get; set; }
         public string City { get; set; }
-        public string Postal_code { get; set; }
+        public string Industry { get; set; }
         public string Phone { get; set; }
     }
 }

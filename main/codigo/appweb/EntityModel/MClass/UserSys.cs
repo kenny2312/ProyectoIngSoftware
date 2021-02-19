@@ -33,6 +33,10 @@ namespace EntityModel.MClass
         [ForeignKey("GrupuserId")]
         public GrupoUser grupouser { get; set; }
 
+        public string EmprId { get; set; }
+        [ForeignKey("EmprId")]
+        public Empresa Empresa { get; set; }
+
         public string user { get; set; }
         public string Password { get; set; }
 

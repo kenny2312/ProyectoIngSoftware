@@ -31,10 +31,10 @@ namespace ProyectoRankingEmpresas.Controllers
             _mapper = mapper;
         }
         // GET: api/<ValuesController1>
-        [Jwt.Authorize]
+      //  [Jwt.Authorize]
         [HttpGet]
         [Route("List")]
-        [PermisoAttribute(Permiso = RolesPermisos.List_User)]
+        //[PermisoAttribute(Permiso = RolesPermisos.List_User)]
         public async Task<ActionResult<IEnumerable<DtoUser>>> Get()
         {
 
@@ -46,7 +46,9 @@ namespace ProyectoRankingEmpresas.Controllers
                 Guid=p.Guid,
                 Name = p.Name,
                 LastName = p.LastName,
-                user=p.user
+                user=p.user,
+                grupouser=p.grupouser,
+                Empresa=p.Empresa
             }).ToListAsync();
 
             return Ok(lista);
@@ -109,6 +111,7 @@ namespace ProyectoRankingEmpresas.Controllers
                     useract.LastName = usermapp.LastName;
                     useract.Password = usermapp.Password;
                     useract.user = usermapp.user;
+                    useract.EmprId = usermapp.EmprId;
                     useract.GrupuserId = usermapp.GrupuserId;
                     await _context.SaveChangesAsync();
                 }

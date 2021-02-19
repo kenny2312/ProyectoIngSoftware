@@ -1,4 +1,5 @@
-﻿using System;
+﻿
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
@@ -7,7 +8,7 @@ using System.Text;
 
 namespace EntityModel.MClass
 {
-    public class Cargos
+    public class Cargo
     {
         [Required]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
@@ -24,28 +25,15 @@ namespace EntityModel.MClass
 
         public DateTime CreationDate { get; set; }
         
-        public int remuneraciones { get; set; }
+       
 
         public string EmpresaId{ get; set; }
         [ForeignKey("EmpresaId")]
         public virtual Empresa EmpresaR{ get; set; }
 
-        //  public virtual Remuneracion rem { get; set; }
+        
 
-        #region atributos de la clase
-        //id
-        //guid
-        //cargo
-        //remuneracion total +sueldo base + bonos +
-        //remuneracion sueldo base
-        //remuneracion alimatacion
-        //remuneracion horas extra
-        //remuneracion bono navideño
-        //remuneracion iies
-        //remuenracion transporte 
-        //remuneracion para los uniformes 
-        //
-        #endregion
+       
 
 
     }

@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\User\\source\\repos\\ProyectoRankingEmpresas\\EntityModel\\EntityModel.csproj": {}
+    "C:\\Users\\User\\Desktop\\ProyectoING\\ProyectoIngSoftware\\main\\codigo\\appweb\\EntityModel\\EntityModel.csproj": {}
   },
   "projects": {
-    "C:\\Users\\User\\source\\repos\\ProyectoRankingEmpresas\\EntityModel\\EntityModel.csproj": {
+    "C:\\Users\\User\\Desktop\\ProyectoING\\ProyectoIngSoftware\\main\\codigo\\appweb\\EntityModel\\EntityModel.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\User\\source\\repos\\ProyectoRankingEmpresas\\EntityModel\\EntityModel.csproj",
+        "projectUniqueName": "C:\\Users\\User\\Desktop\\ProyectoING\\ProyectoIngSoftware\\main\\codigo\\appweb\\EntityModel\\EntityModel.csproj",
         "projectName": "EntityModel",
-        "projectPath": "C:\\Users\\User\\source\\repos\\ProyectoRankingEmpresas\\EntityModel\\EntityModel.csproj",
+        "projectPath": "C:\\Users\\User\\Desktop\\ProyectoING\\ProyectoIngSoftware\\main\\codigo\\appweb\\EntityModel\\EntityModel.csproj",
         "packagesPath": "C:\\Users\\User\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\User\\source\\repos\\ProyectoRankingEmpresas\\EntityModel\\obj\\",
+        "outputPath": "C:\\Users\\User\\Desktop\\ProyectoING\\ProyectoIngSoftware\\main\\codigo\\appweb\\EntityModel\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\User\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -52,7 +52,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.405\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.406\\RuntimeIdentifierGraph.json"
         }
       }
     }

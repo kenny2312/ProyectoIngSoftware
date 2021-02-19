@@ -11,5 +11,6 @@ namespace EntityModel.Dto.UserDto
         public string user { get; set; }
         public string Password { get; set; }
         public int GrupuserId { get; set; }
+        public string EmprId { get; set; }
     }
 }

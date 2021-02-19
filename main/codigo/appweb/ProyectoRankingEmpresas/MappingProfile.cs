@@ -31,6 +31,16 @@ namespace ProyectoRankingEmpresas
             CreateMap<Empresa, DtoEmpresaCreate>();
             CreateMap<DtoEmpresaUpdate, Empresa>();
             CreateMap<Empresa, DtoEmpresaUpdate>();
+
+            //Cargos
+
+          
+            CreateMap<Cargo, DtoCargos>();
+            CreateMap<DtoCargos, Cargo>();
+            CreateMap<DtoCargosCreate, Cargo>();
+            CreateMap<Cargo, DtoCargosCreate>();
+            CreateMap<DtoCargosUpdate, Cargo>();
+            CreateMap<Cargo, DtoCargosUpdate>();
         }
 
     }

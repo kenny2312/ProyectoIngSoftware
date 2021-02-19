@@ -42,7 +42,7 @@ namespace ProyectoRankingEmpresas.Migrations
                     b.ToTable("Actions");
                 });
 
-            modelBuilder.Entity("EntityModel.MClass.Cargos", b =>
+            modelBuilder.Entity("EntityModel.MClass.Cargo", b =>
                 {
                     b.Property<string>("Guid")
                         .HasColumnType("text");
@@ -65,9 +65,6 @@ namespace ProyectoRankingEmpresas.Migrations
                     b.Property<string>("Name")
                         .HasColumnType("character varying(55)")
                         .HasMaxLength(55);
-
-                    b.Property<int>("remuneraciones")
-                        .HasColumnType("integer");
 
                     b.HasKey("Guid");
 
@@ -142,6 +139,59 @@ namespace ProyectoRankingEmpresas.Migrations
                     b.ToTable("GrupoUser");
                 });
 
+            modelBuilder.Entity("EntityModel.MClass.Remuneracion", b =>
+                {
+                    b.Property<string>("Guid")
+                        .HasColumnType("text");
+
+                    b.Property<DateTime>("CreationDate")
+                        .HasColumnType("timestamp without time zone");
+
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("integer")
+                        .HasAnnotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn);
+
+                    b.Property<double>("bonoalimentacion")
+                        .HasColumnType("double precision");
+
+                    b.Property<double>("bononavidad")
+                        .HasColumnType("double precision");
+
+                    b.Property<double>("bonouniforme")
+                        .HasColumnType("double precision");
+
+                    b.Property<string>("cargoId")
+                        .HasColumnType("text");
+
+                    b.Property<double>("decimocuarto")
+                        .HasColumnType("double precision");
+
+                    b.Property<double>("decimotercero")
+                        .HasColumnType("double precision");
+
+                    b.Property<double>("horasextra")
+                        .HasColumnType("double precision");
+
+                    b.Property<double>("iees")
+                        .HasColumnType("double precision");
+
+                    b.Property<double>("remuineracionTotal")
+                        .HasColumnType("double precision");
+
+                    b.Property<double>("sueldobase")
+                        .HasColumnType("double precision");
+
+                    b.Property<double>("transporte")
+                        .HasColumnType("double precision");
+
+                    b.HasKey("Guid");
+
+                    b.HasIndex("cargoId");
+
+                    b.ToTable("Remuneracions");
+                });
+
             modelBuilder.Entity("EntityModel.MClass.UserEmp", b =>
                 {
                     b.Property<int>("Id")
@@ -172,6 +222,9 @@ namespace ProyectoRankingEmpresas.Migrations
                     b.Property<DateTime>("CreationDate")
                         .HasColumnType("timestamp without time zone");
 
+                    b.Property<string>("EmprId")
+                        .HasColumnType("text");
+
                     b.Property<int>("GrupuserId")
                         .HasColumnType("integer");
 
@@ -196,8 +249,9 @@ namespace ProyectoRankingEmpresas.Migrations
 
                     b.HasKey("Guid");
 
-                    b.HasIndex("GrupuserId")
-                        .IsUnique();
+                    b.HasIndex("EmprId");
+
+                    b.HasIndex("GrupuserId");
 
                     b.ToTable("User");
                 });
@@ -211,16 +265,23 @@ namespace ProyectoRankingEmpresas.Migrations
                         .IsRequired();
                 });
 
-            modelBuilder.Entity("EntityModel.MClass.Cargos", b =>
+            modelBuilder.Entity("EntityModel.MClass.Cargo", b =>
                 {
                     b.HasOne("EntityModel.MClass.Empresa", "EmpresaR")
                         .WithMany()
                         .HasForeignKey("EmpresaId");
                 });
 
+            modelBuilder.Entity("EntityModel.MClass.Remuneracion", b =>
+                {
+                    b.HasOne("EntityModel.MClass.Cargo", "cargo")
+                        .WithMany()
+                        .HasForeignKey("cargoId");
+                });
+
             modelBuilder.Entity("EntityModel.MClass.UserEmp", b =>
                 {
-                    b.HasOne("EntityModel.MClass.Empresa", "Empresa")
+                    b.HasOne("EntityModel.MClass.Empresa", null)
                         .WithMany("Usuarios")
                         .HasForeignKey("EmpresaId");
 
@@ -231,9 +292,13 @@ namespace ProyectoRankingEmpresas.Migrations
 
             modelBuilder.Entity("EntityModel.MClass.UserSys", b =>
                 {
+                    b.HasOne("EntityModel.MClass.Empresa", "Empresa")
+                        .WithMany()
+                        .HasForeignKey("EmprId");
+
                     b.HasOne("EntityModel.MClass.GrupoUser", "grupouser")
-                        .WithOne("User")
-                        .HasForeignKey("EntityModel.MClass.UserSys", "GrupuserId")
+                        .WithMany()
+                        .HasForeignKey("GrupuserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });

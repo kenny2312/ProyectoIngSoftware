@@ -18,6 +18,7 @@ namespace EntityModel.MClass
         public virtual UserSys User { get; set; }
         public string EmpresaId { get; set; }
         [ForeignKey("EmpresaId")]
+        [NotMapped]
         public virtual Empresa Empresa { get; set; }
 
     }

@@ -6,3 +6,12 @@ C:\Users\User\source\repos\ProyectoRankingEmpresas\EntityModel\obj\Debug\netcore
 C:\Users\User\source\repos\ProyectoRankingEmpresas\EntityModel\obj\Debug\netcoreapp3.1\EntityModel.csproj.CoreCompileInputs.cache
 C:\Users\User\source\repos\ProyectoRankingEmpresas\EntityModel\obj\Debug\netcoreapp3.1\EntityModel.dll
 C:\Users\User\source\repos\ProyectoRankingEmpresas\EntityModel\obj\Debug\netcoreapp3.1\EntityModel.pdb
+C:\Users\User\Desktop\ProyectoING\ProyectoIngSoftware\main\codigo\appweb\EntityModel\bin\Debug\netcoreapp3.1\EntityModel.deps.json
+C:\Users\User\Desktop\ProyectoING\ProyectoIngSoftware\main\codigo\appweb\EntityModel\bin\Debug\netcoreapp3.1\EntityModel.dll
+C:\Users\User\Desktop\ProyectoING\ProyectoIngSoftware\main\codigo\appweb\EntityModel\bin\Debug\netcoreapp3.1\EntityModel.pdb
+C:\Users\User\Desktop\ProyectoING\ProyectoIngSoftware\main\codigo\appweb\EntityModel\obj\Debug\netcoreapp3.1\EntityModel.csprojAssemblyReference.cache
+C:\Users\User\Desktop\ProyectoING\ProyectoIngSoftware\main\codigo\appweb\EntityModel\obj\Debug\netcoreapp3.1\EntityModel.AssemblyInfoInputs.cache
+C:\Users\User\Desktop\ProyectoING\ProyectoIngSoftware\main\codigo\appweb\EntityModel\obj\Debug\netcoreapp3.1\EntityModel.AssemblyInfo.cs
+C:\Users\User\Desktop\ProyectoING\ProyectoIngSoftware\main\codigo\appweb\EntityModel\obj\Debug\netcoreapp3.1\EntityModel.csproj.CoreCompileInputs.cache
+C:\Users\User\Desktop\ProyectoING\ProyectoIngSoftware\main\codigo\appweb\EntityModel\obj\Debug\netcoreapp3.1\EntityModel.dll
+C:\Users\User\Desktop\ProyectoING\ProyectoIngSoftware\main\codigo\appweb\EntityModel\obj\Debug\netcoreapp3.1\EntityModel.pdb

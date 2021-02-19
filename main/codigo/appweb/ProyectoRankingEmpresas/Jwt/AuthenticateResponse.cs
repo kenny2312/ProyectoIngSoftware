@@ -10,6 +10,7 @@ namespace ProyectoRankingEmpresas
         public string LastName { get; set; }
         public string Username { get; set; }
         public string Token { get; set; }
+        public int GroupId { get; set; }
 
         [JsonIgnore] // refresh token is returned in http only cookie
         public string RefreshToken { get; set; }
@@ -19,6 +20,7 @@ namespace ProyectoRankingEmpresas
             Name = user.Name;
             LastName = user.LastName;
             Username = user.user;
+            GroupId = user.GrupuserId;
             Token = token;
             RefreshToken = refreshToken;
         }

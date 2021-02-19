@@ -21,8 +21,10 @@ namespace ProyectoRankingEmpresas.Model
       
         public virtual DbSet<Empresa> Empresa { get; set; }
         public virtual DbSet<UserEmp> UsuarioEmpresa { get; set; }
-        public virtual DbSet<Cargos> Cargos { get; set; }
+      
         public virtual DbSet<ActionU> Actions { get; set; }
+        public virtual DbSet<Cargo> Cargos { get; set; }
+        public virtual DbSet<Remuneracion> Remuneracions { get; set; }
         protected override void OnModelCreating(ModelBuilder builder)
         {
             base.OnModelCreating(builder);

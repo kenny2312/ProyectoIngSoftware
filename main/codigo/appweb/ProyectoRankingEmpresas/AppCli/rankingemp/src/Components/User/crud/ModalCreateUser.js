@@ -12,16 +12,20 @@ import Dialog from '@material-ui/core/Dialog';
 import DialogActions from '@material-ui/core/DialogActions';
 import DialogContent from '@material-ui/core/DialogContent';
 import DialogTitle from '@material-ui/core/DialogTitle';
-import UserService from "../../../services/user.service";
+import UserService from "../services/user.service";
 import UserContext from '../../UserContext';
+
 export default function SimpleModal(props) {
   const  Usuario= {
+       guid:"",
         user: "",
-         pass: "",
+        password: "",
         name: "",
         lastname:"",
-        group: 0
+        group: 0,
+        emp:""
     }
+    var empresas=[];
     const {user, setUser}=useContext(UserContext);
     const [open, setOpen] = React.useState(false);
     const theme = useTheme();
@@ -31,27 +35,54 @@ export default function SimpleModal(props) {
     const [name, setName] = React.useState('');
     const [lastname, setLastname] = React.useState('');
     const [group, setGroup] = React.useState('');
+    const [emp, setEmp] = React.useState('');
+    
     const [fuser, setFuser] = React.useState(Usuario);
     const [stateact, setStateact] = React.useState('');
-
+    const [listemp, setListEmp] = React.useState([]);
     const handleChange = (event) => {
+        fuser.group=undefined;
         setGroup(event.target.value);
     };
 
+
+ 
+    const    handleChangeEmp = (event) => {
+        fuser.emp=undefined;
+        setEmp(event.target.value);
+    };
     const handleClickOpen = () => {
         setStateact("create");
+        selectEmp();
         setOpen(true);
     };
-    const handleClickEdit = () => {
+    const handleClickEdit = async () => {
         setStateact("edit");
+        selectEmp();
+        if(user.seleclist !== undefined)
+        {
+        let primerconincedica= user.seleclist.slice().shift()
+      
+       if(primerconincedica !== undefined){
+       let obj = await UserService.GetUser(primerconincedica)
+       console.log(obj)
+     
         setFuser({
-            user: "useru",
-            password: "pass",
-            name: "name",
-            lastname: "lastname",
-            GrupuserId: 1
+            guid:obj.guid,
+            user: obj.user,
+            password: obj.password,
+            name: obj.name,
+            lastname: obj.lastName,
+            group: obj.grupuserId,
+            emp:obj.emprId
         });
         setOpen(true);
+    }else{
+        alert("nope")
+    }
+}else{
+    alert("nope")
+}
     };
     const handleClose = () => {
        
@@ -59,32 +90,59 @@ export default function SimpleModal(props) {
     };
     const handleSaveUser = async() => {
        
-        let onejtos = {
-            user: useru,
-            password: pass,
-            name: name,
-            lastname: lastname,
-            GrupuserId: group
-        }
-        setFuser(onejtos);
+      
         
       
        
-        setOpen(false);
-        await handleCreateUser(onejtos);
+        
+        if(stateact==="edit"){
+       
+          var coleccion= {
+                ...fuser,
+                user: (useru !="") ?useru:fuser.user,
+                password: (pass !="")? pass:fuser.pass,
+                name: (name !="")?name:fuser.name,
+                lastname: (lastname !="")? lastname:fuser.lastname,
+                GrupuserId: (group !=0)?  group:fuser.group,
+                EmprId: (emp !=0)?  emp:fuser.emp}
+                console.log(coleccion)
+            await UserService.UpdateUser(coleccion)
+            setOpen(false);
+        }else{
+            let onejtos = {
+                user: useru,
+                password: pass,
+                name: name,
+                lastname: lastname,
+                GrupuserId: group,
+                EmprId:emp
+            }
+
+            setFuser(onejtos);
+            setOpen(false);
+            await handleCreateUser(onejtos);
+        }
+        
         
         setUser({...user,update:true})
     };
     const handleCreateUser = async (vars) => {
        
-        console.log(vars);
+        
 
         await UserService.postUser(vars);
 
     };
+
+    async function   selectEmp() {
+   var asd=[];
+   asd= await UserService.getListSelectEmp();
+   setListEmp(asd);
+    };
+
     const handleDeleteUser =  async () => {
        
-        console.log(user.seleclist);
+       
         user.seleclist.map( async (x) =>{
        return   await UserService.deleteUser(x)
 
@@ -94,7 +152,12 @@ export default function SimpleModal(props) {
         setUser({...user,seleclist:[],update:true})
         console.log(user.seleclist);
     };
-   
+  
+    const updateform=(campo,valor)=>{
+    
+        setUseru(valor);
+      return valor
+    }
 
 
     return (
@@ -122,7 +185,7 @@ export default function SimpleModal(props) {
                 onClose={handleClose}
                 aria-labelledby="responsive-dialog-title"
             >
-                <DialogTitle id="responsive-dialog-title">{"Crear Usuario"}</DialogTitle>
+                <DialogTitle id="responsive-dialog-title">{stateact==="edit"? "Editar Usuario"  : "Crear Usuario"}</DialogTitle>
             
                 <DialogContent>
                     <Grid container component="main" >
@@ -142,7 +205,7 @@ export default function SimpleModal(props) {
                                         label="Nombre"
                                         name="name"
                                         type="text"
-                                        defaultValue={stateact=="edit"? fuser.user: ""}
+                                        defaultValue={stateact==="edit"? fuser.name: ""}
                                     />
                                     <TextField
                                         onChange={e =>
@@ -156,7 +219,13 @@ export default function SimpleModal(props) {
                                         label="Usuario"
                                         type="text"
                                         id="user"
-
+                                        defaultValue={
+                                            
+                                            stateact==="edit"? fuser.user  : ""
+                                            
+                                        
+                                        
+                                        }
                                     />
                                     <TextField
                                         onChange={e =>
@@ -170,7 +239,7 @@ export default function SimpleModal(props) {
                                         label="Contraseña"
                                         type="text"
                                         id="pass"
-
+                                        defaultValue={stateact==="edit"? fuser.password: ""}
                                     />
                                 </Grid>
                                 <Grid item lg={6}>
@@ -186,7 +255,7 @@ export default function SimpleModal(props) {
                                         label="Apellido"
                                         type="text"
                                         id="lastname"
-
+                                        defaultValue={stateact==="edit"? fuser.lastname: ""}
                                     />
                                    
                                    
@@ -195,18 +264,41 @@ export default function SimpleModal(props) {
                                       
                                         labelId="demo-simple-select-autowidth-label"
                                         id="demo-simple-select-autowidth"
-                                        value={group}
+                                        value={fuser.group!== undefined? fuser.group:group}
                                         onChange={handleChange}
-                                        autoWidth
+                                       
+                                        fullWidth
                                     >
                                         <MenuItem value="">
                                             <em>None</em>
                                         </MenuItem>
+                                      
                                         <MenuItem value={1}>admin</MenuItem>
                                         <MenuItem value={2}>client</MenuItem>
                                         <MenuItem value={3}>visitor</MenuItem>
                                     </Select>
-
+                                    <InputLabel   id="demo-simple-select-autowidth-label">Empresa</InputLabel>
+                                    <Select
+                                      
+                                        labelId="demo-simple-select-autowidth-label"
+                                        id="demo-simple-select-autowidth"
+                                        value={fuser.emp!== undefined? fuser.emp:emp}
+                                        onChange={handleChangeEmp}
+                                       
+                                        fullWidth
+                                    >
+                                        <MenuItem value="">
+                                            <em>None</em>
+                                        </MenuItem>
+                                        { 
+                                        
+                                        listemp.map( (x)=>(
+                                         <MenuItem key={x.guid} value={x.guid}>{x.name}</MenuItem>
+                                        )
+                                        ) }
+                                        
+                                        
+                                    </Select>
                                 </Grid>
                             </Grid>
 
